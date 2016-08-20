@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_main" tools:context=".MainActivity"
+    android:background="#000000"
+    android:screenOrientation="portrait"
+    android:orientation="horizontal">
+
+
+    <TextView android:text="Количество символов в пароле:" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/textView"
+        android:textSize="14dp"
+        android:textColor="#FFFF"
+        android:layout_alignTop="@+id/textNumber"
+        android:layout_toStartOf="@+id/addFavoriteButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="12"
+        android:id="@+id/textNumber"
+        android:layout_marginLeft="23dp"
+        android:layout_above="@+id/seekBar"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_marginStart="24dp"
+        android:textColor="#FFFF"/>
+
+    <SeekBar
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/seekBar"
+    android:max="25"
+    android:indeterminate="false"
+    android:progress="12"
+        android:backgroundTint="#FFFFFF"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/addFavoriteButton" />
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:text="Выберите содержание пароля:"
+    android:id="@+id/textView3"
+        android:layout_above="@+id/checkBoxU"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFF"/>
+
+    <CheckBox
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Буквы верхнего регистра"
+    android:id="@+id/checkBoxU"
+    android:checked="true"
+        android:buttonTint="#FFFF"
+        android:textColor="#869394"
+        android:layout_above="@+id/checkBoxL"
+        android:layout_alignEnd="@+id/textView3" />
+
+    <CheckBox
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Буквы нижнего регистра"
+    android:id="@+id/checkBoxL"
+        android:checked="false"
+        android:layout_above="@+id/checkBoxN"
+        android:layout_alignStart="@+id/checkBoxU"
+        android:buttonTint="#FFFF"
+        android:textColor="#869394"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Цифры"
+        android:id="@+id/checkBoxN"
+        android:checked="false"
+        android:layout_above="@+id/checkBoxM"
+        android:layout_alignStart="@+id/checkBoxL"
+        android:buttonTint="#FFFF"
+        android:textColor="#869394"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Символы"
+        android:id="@+id/checkBoxM"
+        android:checked="false"
+        android:layout_above="@+id/buttonGen"
+        android:layout_alignStart="@+id/checkBoxN"
+        android:buttonTint="#FFFF"
+        android:textColor="#869394"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Сгенерировать"
+        android:id="@+id/buttonGen"
+        android:onClick="onClick"
+        android:layout_marginBottom="47dp"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@android:color/transparent"
+        android:layout_alignEnd="@+id/checkBoxM"
+        android:buttonTint="#FFFF"
+        android:textColor="#FFFF"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="сохранить"
+        android:id="@+id/addFavoriteButton"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:onClick="setAddFavoriteButton"
+        android:background="@android:color/transparent"
+        android:layout_below="@+id/checkBoxM"
+        android:layout_alignParentEnd="true"
+        android:buttonTint="#FFFF"
+        android:textColor="#FFFF"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Добавить описание"
+        android:id="@+id/checkBoxPlus"
+        android:onClick="markCheckBox"
+        android:buttonTint="#FFFFFF"
+        android:textColor="#869394"
+        android:layout_above="@+id/outputPasswordPlus"
+        android:layout_alignStart="@+id/outputPasswordPlus" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/outputPasswordPlus"
+        android:visibility="invisible"
+        android:maxLength="13"
+        android:textColor="#FFFFFF"
+        android:layout_above="@+id/textView"
+        android:layout_alignEnd="@+id/checkBoxM"
+        android:layout_marginBottom="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Нажмите кнопку для создания"
+        android:id="@+id/textView4"
+        android:layout_marginTop="28dp"
+        android:textSize="20dp"
+        android:textColor="#FFFF"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

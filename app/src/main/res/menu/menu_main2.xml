@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".PasswordActivity">
+
+
+
+    <item
+        android:id="@+id/menu_item_share"
+        android:showAsAction="ifRoom"
+        android:title="Отправить"
+
+        android:onClick="sharePassword"
+        android:actionProviderClass=
+            "android.widget.ShareActionProvider" />
+
+    <item android:id="@+id/about_app" android:title="@string/save_list"
+        android:orderInCategory="100" app:showAsAction="never"
+        android:onClick="savePasswordList"
+        />
+
+</menu>

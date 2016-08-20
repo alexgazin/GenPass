@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Генератор паролей</string>
+    <string name="exit_app">Выход</string>
+    <string name="about_app">О приложении</string>
+    <string name="favorite">Избранное</string>
+    <string name="title_activity_output_password_actviity">OutputPasswordActviity</string>
+    <string name="title_activity_favorite">Избранное</string>
+    <string name="hello_world">hello</string>
+    <string name="title_activity_password">PasswordActivity</string>
+    <string name="save_list">Сохранить</string>
+    <string name="share_list">Отправить</string>
+</resources>
