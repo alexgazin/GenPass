@@ -115,75 +115,26 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         checkboxU = (CheckBox) findViewById(R.id.checkBoxU);
         checkboxN = (CheckBox) findViewById(R.id.checkBoxN);
         checkboxM = (CheckBox) findViewById(R.id.checkBoxM);
-        String characters = "";
+        StringBuffer characters = new StringBuffer();
+        String lol = "";
 
+        String low = "abcdefghijklmnopqrstuvwxyz";
+        String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String number = "1234567890";
+        String symbol = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 
+        if (checkboxL.isChecked()) { characters.append(low); lol = characters.toString(); }
+        if (checkboxU.isChecked()) { characters.append(upper); lol = characters.toString(); }
+        if (checkboxM.isChecked()) { characters.append(symbol); lol = characters.toString(); }
+        if (checkboxN.isChecked()) { characters.append(number); lol = characters.toString(); }
 
-
-
-        if (checkboxL.isChecked()) {//lower
-            if (checkboxU.isChecked()) { // lower + upper
-                if (checkboxN.isChecked()) { //lower + upper + number
-                    if (checkboxM.isChecked()) { // lower + upper + number + symbolic
-                        characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
-                    } else {
-                        characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-                    }
-                } else { //lower + upper
-                    characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                }
-            } else { // not upper
-                if (checkboxL.isChecked()) {
-                    if (checkboxN.isChecked()) {
-                        if (checkboxM.isChecked()) {
-                            characters = "abcdefghijklmnopqrstuvwxyz1234567890!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
-                        } else {
-                            characters = "abcdefghijklmnopqrstuvwxyz1234567890";
-                        }
-                    }else {
-                        characters = "abcdefghijklmnopqrstuvwxyz";
-                    }
-                if (checkboxL.isChecked()) {
-                        if (checkboxM.isChecked()) {
-                            characters = "abcdefghijklmnopqrstuvwxyz!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
-                        }
-                    }
-                }
-            }
-        } else {//not lower
-            if (checkboxU.isChecked()) {
-                if (checkboxN.isChecked()) {
-                    if (checkboxM.isChecked()) {
-                        characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
-                    } else {
-                        characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-                    }
-                } else {
-                    characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                }
-            } else { // not lower + upper
-                if (checkboxM.isChecked()) {
-                    if (checkboxN.isChecked()) {
-                        characters = "1234567890!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
-                    } else {
-                        characters = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
-                    }
-                } else if (checkboxN.isChecked()) {
-                    characters = "1234567890";
-                } else {
-                    textView4.setText("Выберите содержание пароля");
-                    return;
-                }
-            }
-        }
-
-        int charactersLength = characters.length();
+        int charactersLength = lol.length();
         StringBuffer buffer = new StringBuffer();
 
 
         for (int i=0; i < Integer.valueOf(nTextValue.getText().toString()); i++){
             double index = Math.random() * charactersLength;
-            buffer.append(characters.charAt((int) index));
+            buffer.append(lol.charAt((int) index));
         }
         textView4.setText(buffer.toString());
     }
@@ -222,8 +173,6 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
                 break;
         }
     }
-
-
 
 
     void savePassword() {
